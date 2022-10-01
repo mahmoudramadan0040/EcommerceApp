@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import morgan from 'morgan'
-import dbConnection from '../Database/index';
-import config from "../config/config";
+import dbConnection from './Database/index';
+import config from "./config/config";
 import ErrMiddleware from "./middlewares/err";
 const PORT =config.port || 3000
 // create an instance server

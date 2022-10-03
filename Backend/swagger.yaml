@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: Ecommerce Api 
+  description: |-
+    
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://localhost:3000/api
+tags:
+  - name: User
+    description: Operations about user
+    
+paths:
+  /user/register:
+    post:
+      tags:
+        - User
+      summary: Register User 
+      requestBody:
+        description: Created user object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /user/login:
+    post:
+      tags:
+        - User
+      summary: Login User 
+      requestBody:
+        description: user Login 
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email: 
+                  type: string
+                  example: mahmoudramadan0020@gmail.com
+                password:
+                  type: object
+                  example: secret124
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: 
+                    type: string
+                    example: success
+                  data: 
+                    type: object
+                    properties:
+                      _id: 633b10a57298a2b96765c84d
+                      firstname: mahmoud
+                      lastname: ramadan
+                      username : mahmoud0020 
+                      email : mahmoudramadan0020@gmail.com
+                      password: $2b$10$CT23.QL3Ys3hsk5HV7w9vO05SdGuxsSMPXoAA1zuSfeInnRigbZnC
+                  token:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2F1dGgiOnsiX2lkIjoiNjMzYjEwYTU3Mjk4YTJiOTY3NjVjODRkIiwiZmlyc3RuYW1lIjoibWFobW91ZCIsImxhc3RuYW1lIjoicmFtYWRhbiIsInVzZXJuYW1lIjoibWhtb3VkMDAyMCIsImVtYWlsIjoibWFobW91ZHJhbWFkYW4wMDIwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJENUMjMuUUwzWXMzaHNrNUhWN3c5dk8wNVNkR3V4c1NNUFhvQUExenVTZmVJbm5SaWdiWm5DIiwiX192IjowfSwiaWF0IjoxNjY0ODE1ODYwfQ.vwgiUeV280HwmjlameVpYhGQxNFmPThz6lgBZ5hnWZ0
+              
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+          example: mhmoud0020
+        firstname:
+         type: string
+         example: mahmoud
+        lastname:
+          type: string
+          example: ramadan
+        email:
+          type: string
+          example: mahmoudramadan0020@gmail.com
+        password:
+          type: string
+          example: secret124
+
+
+
+

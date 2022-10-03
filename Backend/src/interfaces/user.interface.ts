@@ -1,4 +1,4 @@
-export interface IUser{
+interface IUser{
     username:string,
     firstname?:string,
     lasrname?:string
@@ -6,3 +6,4 @@ export interface IUser{
     password:string,
     imageUrl?:string
 }
+export default IUser

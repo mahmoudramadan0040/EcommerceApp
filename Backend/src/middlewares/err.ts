@@ -8,10 +8,11 @@ export interface Error {
 class ErrMiddleware{
     error(err:Error,req:Request,res:Response,next:NextFunction){
         const status =err.statusCode ? err.statusCode:500;
-        const message =err.message ? err.message : "something went wrong";
+        const error =err ? err : "something went wrong";
+        
         res.status(status).json({
             status,
-            message
+            error
         });
         
     }

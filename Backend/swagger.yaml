@@ -67,16 +67,29 @@ paths:
                   data: 
                     type: object
                     properties:
-                      _id: 633b10a57298a2b96765c84d
-                      firstname: mahmoud
-                      lastname: ramadan
-                      username : mahmoud0020 
-                      email : mahmoudramadan0020@gmail.com
-                      password: $2b$10$CT23.QL3Ys3hsk5HV7w9vO05SdGuxsSMPXoAA1zuSfeInnRigbZnC
+                      _id: 
+                        type: string
+                        example: 633b10a57298a2b96765c84d
+                      firstname:
+                        type: string
+                        example: mahmoud
+                      lastname:
+                        type: string
+                        example: ramadan
+                      username :
+                        type: string
+                        example: mahmoud0020 
+                      email : 
+                        type: string
+                        example: mahmoudramadan0020@gmail.com
+                      password: 
+                        type: string
+                        example: $2b$10$CT23.QL3Ys3hsk5HV7w9vO05SdGuxsSMPXoAA1zuSfeInnRigbZnC
                   token:
                     type: string
                     example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2F1dGgiOnsiX2lkIjoiNjMzYjEwYTU3Mjk4YTJiOTY3NjVjODRkIiwiZmlyc3RuYW1lIjoibWFobW91ZCIsImxhc3RuYW1lIjoicmFtYWRhbiIsInVzZXJuYW1lIjoibWhtb3VkMDAyMCIsImVtYWlsIjoibWFobW91ZHJhbWFkYW4wMDIwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJENUMjMuUUwzWXMzaHNrNUhWN3c5dk8wNVNkR3V4c1NNUFhvQUExenVTZmVJbm5SaWdiWm5DIiwiX192IjowfSwiaWF0IjoxNjY0ODE1ODYwfQ.vwgiUeV280HwmjlameVpYhGQxNFmPThz6lgBZ5hnWZ0
-              
+
+
 
 components:
   schemas:

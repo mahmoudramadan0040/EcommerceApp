@@ -106,8 +106,19 @@ export class UserController {
                 
             }
             else{
-                console.log(req.body.password);  
-                req.body.password = await this.hash.hashPassword(req.body.password as string )  
+                // check if the email is unique or not 
+                const checkEmail =  await User.find({email:req.body.email});
+                
+                if(checkEmail){
+                   res.status(400).json({
+                       status:"error",
+                       "message":"Email shoud be unique value !"
+                   })
+                   return;
+                } 
+                // hash the password value 
+                req.body.password = await this.hash.hashPassword(req.body.password as string )
+                // create user   
                 const user = new User({...req.body});
                 user.save((err)=>{
                     next(err);

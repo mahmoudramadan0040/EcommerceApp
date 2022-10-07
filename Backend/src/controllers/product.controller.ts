@@ -1,4 +1,4 @@
-import Product from "../models/product.model";
+import Product from "../models/product2.model";
 import { Request, Response, NextFunction } from "express";
 
 export class ProductController {

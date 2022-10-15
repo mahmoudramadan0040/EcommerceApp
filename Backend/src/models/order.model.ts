@@ -1,24 +1,39 @@
-import mongoose,{Schema} from "mongoose"; 
+import mongoose, { Schema } from "mongoose";
 
-const OderSchema = new Schema({
-    userId:{
+const OrderSchema = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  total: {
+    type: Number,
+    default: 0,
+    required: true,
+  },
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
+
+  status: {
+    type: String,
+    required: true,
+    default: "pending",
+  },
+  items: [
+    {
+      product: {
         type: Schema.Types.ObjectId,
-        ref:'User',
-        required:[true,"user id must be required"]
+        ref: "Product",
+      },
+      qty: {
+        type: Number,
+        default: 0,
+      },
     },
-    Products:[{
-        type:Schema.Types.ObjectId,
-        ref:'Product'
-    }],
-    status:{
-        type:String,
-        enum:['Accepted','Rejected','Pending']
-    }
-
-    
+  ],
 });
 
-
-const Order = mongoose.model("Order",OderSchema);
+const Order = mongoose.model("Order", OrderSchema);
 
 export default Order;

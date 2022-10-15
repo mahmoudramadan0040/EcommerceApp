@@ -1,0 +1,27 @@
+
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+
+
+
+      <!-- Products tab & slick -->
+      <app-small-nav></app-small-nav>
+      <p-carousel [value]="product" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+        <ng-template pTemplate="header">
+          basic
+        </ng-template>
+        <ng-template  pTemplate="gridItem">
+          <app-new-product-item ></app-new-product-item>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</div>
+
+
+
+

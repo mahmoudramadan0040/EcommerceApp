@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('./assets/electro-master/css/bootstrap.min.css');
+@import url('./assets/electro-master/css/slick.css');
+@import url('./assets/electro-master/css/slick-theme.css');
+@import url('./assets/electro-master/css/nouislider.min.css');
+@import url('./assets/electro-master/css/font-awesome.min.css');
+
+
+
+
+
+@import url('./assets/electro-master/css/style.css');
+

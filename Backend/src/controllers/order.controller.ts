@@ -65,13 +65,15 @@ export class OrderController {
   ) => {
     try {
       const id = req.params.id;
-      const order = await Order.findByIdAndUpdate(id, req.body).then((data) => {
-        if (!data) {
-          res.status(404).send({ message: "order not found" });
-        } else {
-          res.status(200).send({ message: "order updated" });
+      const order = await Order.findByIdAndUpdate(id, req.body.status).then(
+        (data) => {
+          if (!data) {
+            res.status(404).send({ message: "order not found" });
+          } else {
+            res.status(200).send({ message: "order updated" });
+          }
         }
-      });
+      );
     } catch (err) {
       next(err);
     }

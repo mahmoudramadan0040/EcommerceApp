@@ -26,6 +26,7 @@ import { MainHeaderComponent } from './Components/header/main-header/main-header
 import { NewProductComponent } from './Components/new-product/new-product.component';
 import { NewProductItemComponent } from './Components/new-product-item/new-product-item.component';
 import {CarouselModule} from 'primeng/carousel';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import {CarouselModule} from 'primeng/carousel';
     ButtonModule,
     ToggleButtonModule,
     RippleModule,
-    CarouselModule
+    CarouselModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

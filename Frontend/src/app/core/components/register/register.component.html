@@ -1,0 +1,93 @@
+<p-dialog  [(visible)]="displayModal"
+(onHide)="hideDialog()"
+  [modal]="true"
+  [contentStyle]="{minHeight: '60%'}"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{width: '550px', minWidth: '100px' ,maxWidth:'550px'}">
+  <form style="margin:10px"
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()">
+    <h2 style="color:rgb(255, 0, 191); text-align: center;">Sign Up </h2>
+    <!-- username field -->
+    <div class="p-inputgroup" style="margin-top:30px ;margin-bottom: 14px;">
+      <span class="p-inputgroup-addon" style="min-width:50px"><i class="pi pi-user"></i></span>
+      <input type="text" pInputText placeholder="Username" formControlName="username"
+      style="min-Height:40px;font-size: 15px; padding:3px">
+    </div>
+    <!-- username validation -->
+    <div
+    class="alert alert-danger" style="font-size:14px"
+    *ngIf="(registerFromControl['username'].touched || submitted)
+    && registerFromControl['username'].errors?.['required']">
+    <i class=" pi pi-exclamation-triangle"></i> &nbsp; username is required</div>
+    <!-- firstname field -->
+    <div class="p-inputgroup" style="margin-top:30px; margin-bottom: 14px;">
+      <span class="p-inputgroup-addon" style="min-width:50px"><i class="pi pi-user"></i></span>
+      <input type="text" pInputText placeholder="Firstname" formControlName="firstname"
+      style="min-Height:40px;font-size: 15px; padding:3px">
+    </div>
+    <!-- firstname validation -->
+    <div
+    class="alert alert-danger" style="font-size:14px"
+    *ngIf="(registerFromControl['firstname'].touched || submitted)
+    && registerFromControl['firstname'].errors?.['required']">
+    <i class=" pi pi-exclamation-triangle"></i> &nbsp; firstname is required</div>
+    <!-- lastname field -->
+    <div class="p-inputgroup" style="margin-top:30px ;margin-bottom: 14px;">
+      <span class="p-inputgroup-addon" style="min-width:50px"><i class="pi pi-user"></i></span>
+      <input type="text" pInputText placeholder="Lastname" formControlName="lastname"
+      style="min-Height:40px;font-size: 15px; padding:3px">
+    </div>
+    <!-- lastname validation -->
+    <div
+    class="alert alert-danger" style="font-size:14px"
+    *ngIf="(registerFromControl['lastname'].touched || submitted)
+    && registerFromControl['lastname'].errors?.['required']">
+    <i class=" pi pi-exclamation-triangle"></i> &nbsp; lastname is required</div>
+    <!-- email field -->
+    <div class="p-inputgroup" style="margin-top:30px;margin-bottom: 14px;">
+      <span class="p-inputgroup-addon" style="min-width:50px"><i class="pi pi-at"></i></span>
+      <input type="text" pInputText placeholder="Email" formControlName="email"
+      style="min-Height:40px;font-size: 15px; padding:3px">
+    </div>
+    <!-- Email validation  -->
+    <div
+    class="alert alert-danger" style="font-size:14px"
+    *ngIf="(registerFromControl['email'].touched || submitted)
+    && registerFromControl['email'].errors?.['required']">
+    <i class=" pi pi-exclamation-triangle"></i> &nbsp; Email is required</div>
+    <div
+    class="alert alert-danger" style="font-size:14px"
+    *ngIf="(submitted) && registerFromControl['email'].errors?.['email']">
+    <i class="pi pi-exclamation-triangle"></i>  &nbsp;Email should have @ sign </div>
+    <!-- password field -->
+    <div class="p-inputgroup" style="margin-top:30px;margin-bottom: 14px;">
+      <span class="p-inputgroup-addon" style="min-width:50px"><i class="pi pi-lock"></i></span>
+      <input type="text" pInputText placeholder="Password" formControlName="password"
+       style="min-Height:40px;font-size: 15px; padding:3px">
+    </div>
+    <!-- password validation -->
+    <div class="alert alert-danger" style="font-size:14px"
+      *ngIf="(registerFromControl['password'].touched || submitted)
+      && registerFromControl['password'].errors?.['required']">
+      <i class="pi pi-exclamation-triangle"></i>  &nbsp; password is required</div>
+
+    <div class="alert alert-danger" style="font-size:14px"
+    *ngIf="(registerFromControl['password'].touched || submitted)
+      && registerFromControl['password'].errors?.['minlength']">
+    <i class="pi pi-exclamation-triangle"></i>  &nbsp; password must be at least 6 character </div>
+
+    <div class="alert alert-danger" style="font-size:14px"
+    *ngIf="isSignUpFailed && submitted ">
+    <i class="pi pi-exclamation-triangle"></i>  &nbsp; {{errorMessage}} </div>
+    <div style="text-align: center; margin:20px ;">
+      <button pButton pRipple type="submit" label="Sign Up "
+      [disabled]="!this.registerForm.valid"
+      style="min-width:100px;font-size: 15px;font-weight: 500; "
+      class=" red-600 p-button-outlined p-button-rounded p-button-lg"></button>
+    </div>
+  </form>
+</p-dialog>
+

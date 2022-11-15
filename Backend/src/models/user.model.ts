@@ -15,7 +15,12 @@ const UserSchema = new Schema({
         type:String,
         required:[true,"password must be required"]
     },
-    imageUrl:String
+    imageUrl:String,
+    role:{
+        type:String,
+        enum:['USER','ADMIN'],
+        default: 'USER'
+    }
 });
 
 const User = mongoose.model("User",UserSchema);

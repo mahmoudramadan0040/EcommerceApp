@@ -1,0 +1,50 @@
+<p-dialog  [(visible)]="displayModal"
+(onHide)="hideDialog()"
+  [modal]="true"
+  [contentStyle]="{minHeight: '60%'}"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{width: '550px', minWidth: '100px' ,maxWidth:'550px'}">
+  <form
+  style="margin:10px"
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()">
+    <h2 style="color:rgb(255, 0, 191); text-align: center;">Sign in </h2>
+
+    <!-- input email -->
+    <div class="p-inputgroup form-group" style="margin-top:30px">
+      <span class="p-inputgroup-addon" style="min-width:50px"><i class="pi pi-at"></i></span>
+      <input type="text" class="form-control" formControlName="email" pInputText placeholder="Email" style="min-Height:40px;font-size: 15px; padding:3px">
+    </div>
+    <!-- validation email -->
+    <div
+    class="alert alert-danger" style="font-size:14px"
+    *ngIf="(loginFormControl['email'].touched || submitted) && loginFormControl['email'].errors?.['required']"> <i class=" pi pi-exclamation-triangle"></i> &nbsp; Email is required</div>
+    <div
+    class="alert alert-danger" style="font-size:14px"
+    *ngIf="(submitted) && loginFormControl['email'].errors?.['email']"><i class="pi pi-exclamation-triangle"></i>  &nbsp;Email should have @ sign </div>
+    <!-- input password -->
+    <div class="p-inputgroup" style="margin-top:30px; margin-bottom: 14px;">
+      <span class="p-inputgroup-addon" style="min-width:50px"><i class="pi pi-lock"></i></span>
+      <input type="password" class="p-invalid" formControlName="password" pInputText placeholder="Password" style="min-Height:40px;font-size: 15px; padding:3px">
+    </div>
+    <!-- validation password -->
+
+    <div class="alert alert-danger" style="font-size:14px"
+      *ngIf="(loginFormControl['password'].touched || submitted) && loginFormControl['password'].errors?.['required']">
+      <i class="pi pi-exclamation-triangle"></i>  &nbsp; password is required</div>
+    <div class="alert alert-danger" style="font-size:14px"
+    *ngIf="(loginFormControl['password'].touched || submitted) && loginFormControl['password'].errors?.['minlength']">
+    <i class="pi pi-exclamation-triangle"></i>  &nbsp; password must be at least 6 character </div>
+
+    <div class="alert alert-danger" style="font-size:14px"
+    *ngIf="isLoginFailed && submitted ">
+    <i class="pi pi-exclamation-triangle"></i>  &nbsp; {{errorMessage}} </div>
+
+    <div style="text-align: center; margin:20px ;">
+      <button pButton pRipple type="submit" label="Login" style="min-width:100px;font-size: 15px;font-weight: 500; " class=" red-600 p-button-outlined p-button-rounded p-button-lg"></button>
+
+    </div>
+  </form>
+</p-dialog>

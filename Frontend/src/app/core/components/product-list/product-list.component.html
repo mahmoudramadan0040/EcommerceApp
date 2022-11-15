@@ -1,0 +1,25 @@
+<div class="section">
+  <!-- container -->
+  <div class="container d-flex justify-content-center mt-50 mb-50">
+    <!-- row -->
+    <div class="row ">
+      <app-product-item  class="mb-2 " *ngFor="let product of products" [product]="product"></app-product-item>
+    </div>
+
+    <div class="text-center">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" value="1" (click)="onClickPage(1)">1</a></li>
+        <li class="page-item"><a class="page-link" value="2" (click)="onClickPage(2)">2</a></li>
+        <li class="page-item"><a class="page-link" value="3" (click)="onClickPage(3)">3</a></li>
+        <!-- <li class="page-item" [ngClass]="{'disabled':productEmpty}" >
+          <a class="page-link">Next</a>
+        </li> -->
+      </ul>
+    </div>
+
+
+  </div>
+</div>

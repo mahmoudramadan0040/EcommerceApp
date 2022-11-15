@@ -23,19 +23,22 @@
               "src/assets"
             ],
             "styles": [
-
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/saga-orange/theme.css",
+              "src/styles.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "src/styles.css"
+              "node_modules/primeng/resources/themes/saga-green/theme.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/primeicons/primeicons.css"
+
+
             ],
             "scripts": [
-              "src/assets/electro-master/js/jquery.min.js",
-              "src/assets/electro-master/js/bootstrap.min.js",
-              "src/assets/electro-master/js/slick.min.js",
-              "src/assets/electro-master/js/nouislider.min.js",
-              "src/assets/electro-master/js/jquery.zoom.min.js",
-              "src/assets/electro-master/js/main.js"
+
+              "node_modules/assets/jquery.min.js",
+              "node_modules/assets/bootstrap.min.js",
+              "node_modules/assets/slick.min.js",
+              "node_modules/assets/nouislider.min.js",
+              "node_modules/assets/jquery.zoom.min.js",
+              "node_modules/assets/main.js"
             ]
           },
           "configurations": {

@@ -1,0 +1,16 @@
+.grid-container{
+  display: grid;
+  grid-template-areas: 'menu menu header header header header'
+                       'menu  main   main   main   main   main  ';
+}
+
+.header{
+  grid-area: header;
+}
+.sidebar-grid{
+  grid-area: menu;
+}
+.content{
+  grid-area: main;
+  position: absolute;
+}

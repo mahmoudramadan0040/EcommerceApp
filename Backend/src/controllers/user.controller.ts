@@ -92,6 +92,7 @@ export class UserController {
                 username:Joi.string().min(3).max(40).required(),
                 email:Joi.string().email().required(),
                 password:Joi.string().min(6).required(),
+                role:Joi.string().required(),
                 imageUrl:Joi.string()
             })
             const options = {
@@ -108,8 +109,8 @@ export class UserController {
             else{
                 // check if the email is unique or not 
                 const checkEmail =  await User.find({email:req.body.email});
-                
-                if(checkEmail){
+                console.log(checkEmail)
+                if(checkEmail.length){
                    res.status(400).json({
                        status:"error",
                        "message":"Email shoud be unique value !"
@@ -154,19 +155,24 @@ export class UserController {
                 }))
             }
             else{
+                console.log("hellowoooood")
                 const {email,password}= req.body;
                 const user_auth = await this.hash.auth(email,password);
                 console.log(user_auth);
+                console.log(user_auth);
                 const token =Jwt.sign({user_auth},config.token as string );
                 if(user_auth){
-                    return res.json({ 
+                    res.json({ 
                         status:"success",
-                        data:{user_auth,token}
+                        data:{
+                            user_auth,
+                            token
+                        }
                     })
                 }else{
-                    return res.status(401).json({
+                    res.status(401).json({
                         status:"error faild login",
-                        message:"the user and password incorrect please try again "
+                        "message":"the user and password incorrect please try again "
                     })
                 }
             }

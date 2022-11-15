@@ -12,13 +12,18 @@ class Hash {
     }
     public async auth (email:string,password:string):Promise<IUser|null>{
         try{
-            const result = await User.findOne({"email":email});
-            console.log(result);
-            const checkPassword =  bcrypt.compareSync(`${password}${config.pepper}`,result?.password as string );
-            if(checkPassword){
-                return result as IUser;
+            const userExist = await User.findOne({"email":email});
+            if(userExist){
+                console.log(userExist);
+                const checkPassword =  bcrypt.compareSync(`${password}${config.pepper}`,userExist?.password as string );
+                console.log(checkPassword)
+                if(checkPassword){
+                    return userExist as IUser;
+                }
+                return null;
             }
-            return null;
+            return null ;
+            
         }catch(error){
             throw new Error("user can not be autherized");
         }

@@ -1,0 +1,9 @@
+.dialogStyle{
+  width: 60%;
+  height: 70%;
+}
+.alert .alert-danger
+{
+  max-height: 30px;
+
+}

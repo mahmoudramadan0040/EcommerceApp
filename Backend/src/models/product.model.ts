@@ -12,8 +12,16 @@ const ProductSchema = new Schema({
   details: {
     type: String,
   },
-  imageUrl: String,
+  imageUrl: [String],
+  category:{
+    type:String,
+  },
+  ProdQuantity:{
+    type:Number,
+  },
+
 });
+ProductSchema.index({title:'text'});
 
 const Product = mongoose.model("Product", ProductSchema);
 

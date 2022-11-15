@@ -1,0 +1,43 @@
+<div class="col-md-3 col-sm-6 mt-2  col-3">
+  <div class="card">
+    <div class="card-body">
+      <a [routerLink]="['product',product?._id]" >
+      <div class="card-img-actions">
+
+          <img
+          src="{{product?.imageUrl?.[0]}}"
+          class="card-img img-fluid"
+          width="96"
+          height="350"
+          alt=""
+        />
+
+        <span class="promotion"> -30% </span>
+        <span class="status">{{status}} </span>
+      </div>
+    </a>
+
+    </div>
+    <div class="card-body bg-light text-center">
+      <div class="mb-2">
+        <h6 class="font-weight-semibold mb-2">
+          <a href="#" class="text-default mb-2" data-abc="true"
+            >{{product?.title}}</a
+          >
+        </h6>
+        <a href="#" class="text-muted" data-abc="true">{{product?.category}}</a>
+      </div>
+      <h3 class="mb-0 font-weight-semibold">${{product?.price}}</h3>
+      <div>
+        <i class="fa fa-star star"></i>
+        <i class="fa fa-star star"></i>
+        <i class="fa fa-star star"></i>
+        <i class="fa fa-star star"></i>
+      </div>
+      <div class="text-muted mb-3">34 reviews</div>
+      <button type="button" (click)="addToCart()" class="btn bg-cart">
+        <i class="fa fa-cart-plus mr-2"></i> Add to cart
+      </button>
+    </div>
+  </div>
+</div>

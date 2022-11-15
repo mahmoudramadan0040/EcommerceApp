@@ -1,7 +1,7 @@
 interface IUser{
     username:string,
     firstname?:string,
-    lasrname?:string
+    lastname?:string
     email:string,
     password:string,
     imageUrl?:string
